@@ -1,17 +1,26 @@
 
 interface ProjectCardProps {
-  icon: string;
   title: string;
   description: string;
   links: { text: string; url: string }[];
+  stars?: string;
+  forks?: string;
 }
 
-function ProjectCard({ icon, title, description, links }: ProjectCardProps) {
+function ProjectCard({ title, description, links, stars, forks }: ProjectCardProps) {
   return (
     <div className="project-card">
-      <h3 className="text-xl font-semibold mb-3">
-        {title}
-      </h3>
+      <div className="flex items-start justify-between mb-3">
+        <h3 className="text-xl font-semibold">
+          {title}
+        </h3>
+        {(stars || forks) && (
+          <div className="flex gap-3 text-sm" style={{ color: 'var(--light)' }}>
+            {stars && <span>★ {stars}</span>}
+            {forks && <span>⑂ {forks}</span>}
+          </div>
+        )}
+      </div>
       <p className="mb-4 leading-relaxed" style={{ color: 'var(--light)' }}>
         {description}
       </p>
@@ -36,20 +45,20 @@ function ProjectCard({ icon, title, description, links }: ProjectCardProps) {
 export default function Projects() {
   const projects: ProjectCardProps[] = [
     {
-      icon: '',
       title: 'Nextcloud VM',
-      description: 'Huvudutvecklar och maintainer för omfattande VM-appliance med interaktiva installationsskript. 1.5k stars, 674 forks, distribueras officiellt av Nextcloud med ~100 nedladdningar/dag sedan 2016. A+ säkerhetsbetyg med TLS-support och Collabora/ONLYOFFICE-integration.',
+      description: 'Huvudutvecklare och maintainer för omfattande VM-appliance med interaktiva installationsskript. Distribueras officiellt av Nextcloud sedan 2016. A+ säkerhetsbetyg med TLS-support och Collabora/ONLYOFFICE-integration.',
+      stars: '1.5k',
+      forks: '674',
       links: [
         { text: 'GitHub →', url: 'https://github.com/nextcloud/vm' },
         { text: 'Dokumentation →', url: 'https://www.hanssonit.se/nextcloud-vm/' },
       ],
     },
     {
-      icon: '',
       title: 'OVMS Home Assistant',
       description: 'MQTT-integration för Open Vehicle Monitoring System med automatisk entitets-discovery, cell-level batteridata och GPS-tracking. Löser utfasning av 3G i elbilar genom OVMS-modul med 4G/WiFi. Omfattande Home Assistant-integration via HACS.',
-       stars: '23',
-       forks: '1',
+      stars: '23',
+      forks: '1',
       links: [
         { text: 'GitHub →', url: 'https://github.com/enoch85/ovms-home-assistant' },
         { text: 'Blog: Setup →', url: 'https://www.techandme.se/ovms-open-vehicle-monitoring-system/' },
@@ -57,21 +66,19 @@ export default function Projects() {
       ],
     },
     {
-      icon: '',
-       title: 'Global Energy Spotprices',
+      title: 'Global Energy Spotprices',
       description: 'Global elprisprognos-integration med stöd för 40+ regioner (Europa, Australien, USA). Intelligent 15-minuters intervallhantering med 9+ priskällor och automatisk fallback. DST-medveten valutakonvertering och self-learning cache för spot-price + effekttariff-optimering.',
-       stars: '16',
-       forks: '0',
+      stars: '16',
+      forks: '0',
       links: [
         { text: 'GitHub →', url: 'https://github.com/enoch85/ge-spot' },
       ],
     },
     {
-      icon: '',
       title: 'EffektGuard',
       description: 'Intelligent värmepumpsoptimering med ML-baserad självlärande 8-lagers beslutsmotor. Balanserar pris, effekttariff, väder, komfort och säkerhet. Klimatzon-anpassning (Arktis-Medelhavet), matematisk väderkompensation och thermisk skuld-tracking. Produktionstestas i svenska hem.',
-       stars: '1',
-       forks: '0',
+      stars: '1',
+      forks: '0',
       links: [
         { text: 'GitHub →', url: 'https://github.com/enoch85/EffektGuard' },
       ],

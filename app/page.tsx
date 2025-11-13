@@ -19,9 +19,14 @@ export default function Home() {
         <Additional />
         
         <footer className="text-center py-12 mt-16 border-t px-4" style={{ borderColor: 'var(--border)', color: 'var(--light)' }}>
-          <p>© {new Date().getFullYear()} Daniel Hansson • Byggt med passion för clean code och minimalism</p>
+          <p>© {new Date().getFullYear()} Daniel Hansson</p>
+          <p className="mt-4 text-sm italic" style={{ opacity: 0.8 }}>
+            &ldquo;Be definite in everything you do, and never leave unfinished thoughts in the mind.&rdquo;
+            <br />
+            <span className="block">– Napoleon Hill</span>
+          </p>
           <p className="mt-4 text-sm">
-            <a href="https://www.openstreetmap.org/?#map=13/55.59949/13.37809" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)' }}>📍 Genarp, Skåne</a> • 🚀 Redo för nya utmaningar
+            <a href="https://www.openstreetmap.org/?#map=13/55.59949/13.37809" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)' }}>📍 Genarp, Skåne</a>
           </p>
         </footer>
       </main>

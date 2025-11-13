@@ -1,11 +1,10 @@
 
 interface UniqueItemProps {
-  icon: string;
   title: string;
   description: string;
 }
 
-function UniqueItem({ icon, title, description }: UniqueItemProps) {
+function UniqueItem({ title, description }: UniqueItemProps) {
   return (
     <div className="unique-item">
       <h3 className="mb-3 font-semibold text-lg" style={{ color: 'var(--primary)' }}>
@@ -22,24 +21,20 @@ function UniqueItem({ icon, title, description }: UniqueItemProps) {
 export default function Additional() {
   const uniquePoints: UniqueItemProps[] = [
     {
-      icon: '',
       title: 'Entreprenöriell bakgrund',
-      description: 'Grundat och drivit fyra företag med framgång. Förstår både tekniska och affärsmässiga aspekter av IT-lösningar.',
+      description: 'Grundat och drivit fyra företag. Förstår både tekniska och affärsmässiga aspekter av IT-lösningar.',
     },
     {
-      icon: '',
       title: 'Linux-expert',
-      description: 'Från nybörjare 2013 till företagets "go-to guy". Djup förståelse för både Linux och Windows-miljöer.',
+      description: 'Dokumenterad djup kompetens i Linux och Windows-miljöer.',
     },
     {
-      icon: '',
       title: 'Open Source-bidragare',
-      description: 'Aktiv inom open source-communityn. "Ger tillbaka till världen" genom kod, dokumentation och support.',
+      description: 'Aktiv inom open source genom kod, dokumentation och support.',
     },
     {
-      icon: '',
       title: 'Social & Teknisk',
-      description: 'Ovanlig kombination av djup teknisk expertis och starka sociala färdigheter från säljbakgrund.',
+      description: 'Kombinerar djup teknisk expertis med stark kommunikativ förmåga och säljbakgrund.',
     },
   ];
 

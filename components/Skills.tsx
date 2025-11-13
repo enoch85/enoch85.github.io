@@ -1,11 +1,10 @@
 
 interface SkillCategoryProps {
-  icon: string;
   title: string;
   skills: string[];
 }
 
-function SkillCategory({ icon, title, skills }: SkillCategoryProps) {
+function SkillCategory({ title, skills }: SkillCategoryProps) {
   return (
     <div className="skill-category">
       <h3 className="flex items-center gap-2 mb-4 font-semibold text-lg" style={{ color: 'var(--primary)' }}>
@@ -26,22 +25,18 @@ function SkillCategory({ icon, title, skills }: SkillCategoryProps) {
 export default function Skills() {
   const skillCategories: SkillCategoryProps[] = [
     {
-      icon: '',
       title: 'Infrastructure & Cloud',
       skills: ['Linux Administration', 'VMware vSphere', 'Hyper-V', 'Proxmox', 'Docker', 'Kubernetes', 'Microsoft Azure', 'Datacenter Management'],
     },
     {
-      icon: '',
       title: 'System & Nätverk',
       skills: ['Active Directory', 'Windows Server', 'Microsoft Exchange', 'DNS/DHCP', 'VPN', 'Backup Solutions', 'Microsoft SQL Server', 'RAS'],
     },
     {
-      icon: '',
       title: 'Development & Automation',
       skills: ['Bash Scripting', 'PowerShell', 'Git', 'CI/CD', 'Infrastructure as Code', 'Python', 'Home Assistant', 'API Integration'],
     },
     {
-      icon: '',
       title: 'Open Source & Tools',
       skills: ['Nextcloud', 'Jitsi Meet', 'WordPress', 'GitHub', 'Open Source Contribution', 'Documentation'],
     },
