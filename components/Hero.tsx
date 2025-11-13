@@ -7,12 +7,11 @@ export default function Hero() {
         Daniel Hansson
       </h1>
       <p className="text-xl md:text-2xl mb-6" style={{ color: 'var(--primary)' }}>
-        Teknikentreprenör med passion för automation, infrastruktur och serverdrift
+        Datacenter Manager med bakgrund som entreprenör och teknisk specialist
       </p>
       <p className="max-w-2xl mx-auto text-lg md:text-xl mb-8 px-4" style={{ color: 'var(--light)' }}>
-        Skillad på Linux och serverdrift. Tidigare bakgrund inom försäljning och företagande. 
-        Bygger robusta öppna plattformar och skalar driftmiljöer med hög tillgänglighet. Älskar automation och brinner för att göra svåra saker enkla.
-        Grundade tre bolag – samtliga avyttrade.
+        Leder drift av datacenter i södra Sverige. Specialist på Linux, virtualisering och serverdrift med dokumenterad erfarenhet från både småföretag och enterprise-miljöer. 
+        Grundat och sålt tre IT-bolag. Kombinerar teknisk expertis med affärsförståelse och stark kommunikativ förmåga.
       </p>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 max-w-4xl mx-auto px-4 mb-8">

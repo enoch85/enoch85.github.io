@@ -1,7 +1,9 @@
 
+import type { ReactNode } from 'react';
+
 interface UniqueItemProps {
   title: string;
-  description: string;
+  description: string | ReactNode;
 }
 
 function UniqueItem({ title, description }: UniqueItemProps) {
@@ -10,9 +12,9 @@ function UniqueItem({ title, description }: UniqueItemProps) {
       <h3 className="mb-3 font-semibold text-lg" style={{ color: 'var(--primary)' }}>
         {title}
       </h3>
-      <p style={{ color: 'var(--light)', lineHeight: '1.7' }}>
+      <div style={{ color: 'var(--light)', lineHeight: '1.7' }}>
         {description}
-      </p>
+      </div>
 
     </div>
   );
@@ -21,20 +23,44 @@ function UniqueItem({ title, description }: UniqueItemProps) {
 export default function Additional() {
   const uniquePoints: UniqueItemProps[] = [
     {
-      title: 'Entreprenöriell bakgrund',
-      description: 'Grundat och drivit fyra företag. Förstår både tekniska och affärsmässiga aspekter av IT-lösningar.',
+      title: 'Dokumenterad expertis',
+      description: (
+        <ul className="list-disc pl-5 space-y-1">
+          <li>Grundare och maintainer för <a href="https://nextcloud.com/" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline', textDecorationStyle: 'dotted', textUnderlineOffset: '2px' }}>Nextcloud</a>s officiella VM med global distribution via mitt egna företag</li>
+          <li>Talare på <a href="https://owncloud.com/" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline', textDecorationStyle: 'dotted', textUnderlineOffset: '2px' }}>ownCloud</a> Conference och Nextcloud Conference i Berlin samt <a href="https://foss-north.se/" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline', textDecorationStyle: 'dotted', textUnderlineOffset: '2px' }}>foss-north</a> i Göteborg</li>
+          <li>Nutanix ECA-certifierad (Enterprise Cloud Administration)</li>
+        </ul>
+      ),
     },
     {
-      title: 'Linux-expert',
-      description: 'Dokumenterad djup kompetens i Linux och Windows-miljöer.',
+      title: 'Entreprenöriell erfarenhet',
+      description: (
+        <ul className="list-disc pl-5 space-y-1">
+          <li>Grundat och sålt tre företag</li>
+          <li>Väldigt driven personlighet</li>
+          <li>Förstår både tekniska och affärsmässiga aspekter av IT-lösningar</li>
+          <li>Erfarenhet av att bygga team och skala verksamhet</li>
+        </ul>
+      ),
     },
     {
       title: 'Open Source-bidragare',
-      description: 'Aktiv inom open source genom kod, dokumentation och support.',
+      description: (
+        <ul className="list-disc pl-5 space-y-1">
+          <li>Aktiv bidragsgivare till Nextcloud och ownCloud med flera års historia</li>
+          <li>Utvecklat automationsskript och VM som används på tusentals servrar globalt</li>
+          <li>Fokus på att göra komplexa system tillgängliga</li>
+        </ul>
+      ),
     },
     {
-      title: 'Social & Teknisk',
-      description: 'Kombinerar djup teknisk expertis med stark kommunikativ förmåga och säljbakgrund.',
+      title: 'Teknisk kommunikatör',
+      description: (
+        <ul className="list-disc pl-5 space-y-1">
+          <li>Kombinerar djup teknisk kunskap med stark kommunikativ förmåga från 10+ års erfarenhet inom försäljning och kundrelationer</li>
+          <li>Kan översätta tekniska lösningar till affärsnytta</li>
+        </ul>
+      ),
     },
   ];
 

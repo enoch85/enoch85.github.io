@@ -46,7 +46,7 @@ export default function Projects() {
   const projects: ProjectCardProps[] = [
     {
       title: 'Nextcloud VM',
-      description: 'Huvudutvecklare och maintainer för omfattande VM-appliance med interaktiva installationsskript. Distribueras officiellt av Nextcloud sedan 2016. A+ säkerhetsbetyg med TLS-support och Collabora/ONLYOFFICE-integration.',
+  description: 'Officiell Nextcloud-appliance med interaktiva skript som tar dig från ren server till A+ TLS-härdad instans – inklusive valbara integrationer som Collabora/ONLYOFFICE. Projektet föddes ur behovet att äga min data och göra installationer enkla, blev officiell 2016 och används idag på tusentals servrar världen över.',
       stars: '1.5k',
       forks: '674',
       links: [
