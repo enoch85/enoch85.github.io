@@ -37,6 +37,7 @@ export default function Additional() {
       description: (
         <ul className="list-disc pl-5 space-y-1">
           <li>Grundat och sålt tre företag</li>
+          <li>Suttit i flera företagsstyrelser</li>
           <li>Väldigt driven personlighet</li>
           <li>Förstår både tekniska och affärsmässiga aspekter av IT-lösningar</li>
           <li>Erfarenhet av att bygga team och skala verksamhet</li>
