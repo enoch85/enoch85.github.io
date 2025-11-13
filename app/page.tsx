@@ -19,9 +19,9 @@ export default function Home() {
         <Additional />
         
         <footer className="text-center py-12 mt-16 border-t px-4" style={{ borderColor: 'var(--border)', color: 'var(--light)' }}>
-          <p>© 2024 Daniel Hansson • Byggt med passion för clean code och minimal komplexitet</p>
+          <p>© {new Date().getFullYear()} Daniel Hansson • Byggt med passion för clean code och minimalism</p>
           <p className="mt-4 text-sm">
-            Genarp, Skåne • Redo för nya utmaningar
+            <a href="https://www.openstreetmap.org/?#map=13/55.59949/13.37809" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)' }}>📍 Genarp, Skåne</a> • 🚀 Redo för nya utmaningar
           </p>
         </footer>
       </main>
