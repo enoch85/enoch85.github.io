@@ -26,8 +26,25 @@
   --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
+/* Dark mode - manual toggle */
+:root[data-theme="dark"] {
+  /* Dark mode - Grayscale with Teal/Purple accents */
+  --primary: #2dd4bf;      /* Teal-400 - brighter for dark bg */
+  --secondary: #c084fc;    /* Purple-400 - brighter for dark bg */
+  --accent: #22d3ee;       /* Cyan-400 */
+  
+  /* Dark grayscale palette */
+  --dark: #f4f4f5;         /* Zinc-100 - main text */
+  --light: #a1a1aa;        /* Zinc-400 - secondary text */
+  --background: #09090b;   /* Zinc-950 - deep black */
+  --foreground: #f4f4f5;   /* Zinc-100 */
+  --section-bg: #18181b;   /* Zinc-900 - subtle sections */
+  --border: #27272a;       /* Zinc-800 - borders */
+}
+
+/* Dark mode - system preference (when no manual override) */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     /* Dark mode - Grayscale with Teal/Purple accents */
     --primary: #2dd4bf;      /* Teal-400 - brighter for dark bg */
     --secondary: #c084fc;    /* Purple-400 - brighter for dark bg */
@@ -268,4 +285,54 @@ section:has(.project-card) .section-icon {
 /* Additional section icon */
 section:has(.unique-item) .section-icon {
   background: var(--primary);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--section-bg);
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  color: var(--dark);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+  transform: scale(1.1);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+.theme-toggle-placeholder {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  z-index: 1000;
+}
+
+@media (max-width: 768px) {
+  .theme-toggle,
+  .theme-toggle-placeholder {
+    top: 1rem;
+    right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
 }
