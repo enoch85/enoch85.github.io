@@ -1,0 +1,271 @@
+@import "tailwindcss";
+
+:root {
+  /* Light mode - Grayscale base with Teal/Purple accents */
+  --primary: #14b8a6;      /* Teal-500 - for key accents */
+  --secondary: #a855f7;    /* Purple-500 - for highlights */
+  --accent: #06b6d4;       /* Cyan-500 - for hover states */
+  
+  /* Grayscale palette */
+  --dark: #18181b;         /* Zinc-900 - main text */
+  --light: #71717a;        /* Zinc-500 - secondary text */
+  --background: #ffffff;   /* Pure white background */
+  --foreground: #18181b;   /* Zinc-900 */
+  --section-bg: #fafafa;   /* Zinc-50 - subtle sections */
+  --border: #e4e4e7;       /* Zinc-200 - borders */
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-section-bg: var(--section-bg);
+  --color-border: var(--border);
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark mode - Grayscale with Teal/Purple accents */
+    --primary: #2dd4bf;      /* Teal-400 - brighter for dark bg */
+    --secondary: #c084fc;    /* Purple-400 - brighter for dark bg */
+    --accent: #22d3ee;       /* Cyan-400 */
+    
+    /* Dark grayscale palette */
+    --dark: #f4f4f5;         /* Zinc-100 - main text */
+    --light: #a1a1aa;        /* Zinc-400 - secondary text */
+    --background: #09090b;   /* Zinc-950 - deep black */
+    --foreground: #f4f4f5;   /* Zinc-100 */
+    --section-bg: #18181b;   /* Zinc-900 - subtle sections */
+    --border: #27272a;       /* Zinc-800 - borders */
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Hero Component */
+.contact-item {
+  padding: 0.75rem 1rem;
+  background: var(--section-bg);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  text-decoration: none;
+  color: var(--dark);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  border-color: var(--accent);
+}
+
+/* Experience Component */
+.timeline {
+  position: relative;
+  padding-left: 3rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--primary);
+  opacity: 0.3;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 4rem;
+  padding: 2rem;
+  background: var(--section-bg);
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover {
+  transform: translateX(8px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+  border-color: var(--primary);
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2.35rem;
+  top: 2rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 3px solid var(--background);
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .timeline {
+    padding-left: 2rem;
+  }
+}
+
+.company-logo-container {
+  width: 80px;
+  height: 80px;
+  background: white;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.company-logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.company-name {
+  color: var(--primary);
+}
+
+.skill-tag {
+  padding: 0.25rem 0.75rem;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  font-size: 0.85rem;
+  color: var(--dark);
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.skill-tag:hover {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: white;
+}
+
+.highlight-badge {
+  color: var(--secondary);
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .company-logo-container {
+    width: 60px;
+    height: 60px;
+    padding: 0.5rem;
+  }
+}
+
+/* Skills Component */
+.skill-category {
+  padding: 1.5rem;
+  background: var(--section-bg);
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.skill-category:hover {
+  border-color: var(--secondary);
+}
+
+/* Projects Component */
+.project-card {
+  padding: 1.5rem;
+  background: var(--section-bg);
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+  border-color: var(--primary);
+}
+
+.project-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  background: var(--background);
+  border: 1px solid var(--primary);
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.project-link:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* Additional Component */
+.unique-item {
+  padding: 1.5rem;
+  background: var(--section-bg);
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.unique-item:hover {
+  border-color: var(--accent);
+}
+
+/* Section Icons */
+.section-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+/* Experience section icon */
+section:has(.timeline) .section-icon {
+  background: var(--primary);
+}
+
+/* Skills section icon */
+section:has(.skill-category) .section-icon {
+  background: var(--secondary);
+}
+
+/* Projects section icon */
+section:has(.project-card) .section-icon {
+  background: var(--accent);
+}
+
+/* Additional section icon */
+section:has(.unique-item) .section-icon {
+  background: var(--primary);
+}
