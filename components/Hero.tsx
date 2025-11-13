@@ -11,7 +11,7 @@ export default function Hero() {
       </p>
       <p className="max-w-2xl mx-auto text-lg md:text-xl mb-8 px-4" style={{ color: 'var(--light)' }}>
         Leder drift av datacenter i södra Sverige. Specialist på Linux, virtualisering och serverdrift med dokumenterad erfarenhet från både småföretag och enterprise-miljöer. 
-        Grundat och sålt tre IT-bolag. Kombinerar teknisk expertis med affärsförståelse och stark kommunikativ förmåga.
+        Grundat och sålt tre företag. Kombinerar teknisk expertis med affärsförståelse och stark kommunikativ förmåga.
       </p>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 max-w-4xl mx-auto px-4 mb-8">
