@@ -11,7 +11,7 @@ export default function Hero() {
       </p>
       <p className="max-w-2xl mx-auto text-lg md:text-xl mb-8 px-4" style={{ color: 'var(--light)' }}>
         Med passion för automation, stabilitet och kontinuerlig förbättring. 
-        Kombinerar djup teknisk expertis inom Linux, virtualisering och infrastruktur med beprövad förmåga att leda team och driva moderniseringsprojekt. 
+        Kombinerar teknisk expertis inom Linux, virtualisering och infrastruktur med beprövad förmåga att leda team och driva moderniserings- och migreringsprojekt. 
         Entreprenöriell bakgrund med affärsförståelse och lösningsorienterat mindset.
       </p>
       
