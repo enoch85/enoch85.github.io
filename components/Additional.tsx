@@ -49,7 +49,7 @@ export default function Additional() {
       description: (
         <ul className="list-disc pl-5 space-y-1">
           <li>Aktiv bidragsgivare till Nextcloud och ownCloud med flera års historia</li>
-          <li>Utvecklat automationsskript och VM som används på tusentals servrar globalt</li>
+          <li>Utvecklat automationsskript och auto-deploy appliances som används på tusentals servrar globalt</li>
           <li>Fokus på att göra komplexa system tillgängliga</li>
         </ul>
       ),

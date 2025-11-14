@@ -25,20 +25,28 @@ function SkillCategory({ title, skills }: SkillCategoryProps) {
 export default function Skills() {
   const skillCategories: SkillCategoryProps[] = [
     {
-      title: 'Infrastructure & Cloud',
-      skills: ['Linux Administration', 'VMware vSphere', 'Hyper-V', 'Proxmox', 'Docker', 'Kubernetes', 'Microsoft Azure', 'Datacenter Management'],
+      title: 'Virtualisering & Hypervisors',
+      skills: ['VMware vSphere/ESX', 'Nutanix AHV', 'Hyper-V', 'Proxmox VE', 'Hyperconverged Infrastructure'],
     },
     {
-      title: 'System & Nätverk',
-      skills: ['Active Directory', 'Windows Server', 'Microsoft Exchange', 'DNS/DHCP', 'VPN', 'Backup Solutions', 'Microsoft SQL Server', 'RAS'],
+      title: 'Operativsystem & Servrar',
+      skills: ['Linux-administration', 'Linux Server', 'Windows Server', 'Active Directory', 'Microsoft Exchange', 'Microsoft Azure', 'Docker'],
     },
     {
-      title: 'Development & Automation',
-      skills: ['Bash Scripting', 'PowerShell', 'Git', 'CI/CD', 'Infrastructure as Code', 'Python', 'Home Assistant', 'API Integration'],
+      title: 'Backup & Lagring',
+      skills: ['Veeam', 'Ahsay', 'Proxmox PBS', 'Disaster Recovery', 'Backuplösningar', 'High Availability'],
     },
     {
-      title: 'Open Source & Tools',
-      skills: ['Nextcloud', 'Jitsi Meet', 'WordPress', 'GitHub', 'Open Source Contribution', 'Documentation'],
+      title: 'Nätverk & Säkerhet',
+      skills: ['VPN', 'DNS/BIND', 'Fortigate', 'opnSense', 'pfSense', 'Unifi', 'Nätverkssäkerhet'],
+    },
+    {
+      title: 'Drift & Management',
+      skills: ['Datacenterdrift', 'IT-ledarskap', 'Incidenthantering', 'ITIL/SLA', 'Kapacitetsplanering', 'Övervakning'],
+    },
+    {
+      title: 'Automation & Skriptning',
+      skills: ['Ansible', 'Bash', 'PowerShell', 'VS Code', 'Infrastructure as Code', 'Packer', 'Git', 'Konfigurationshantering'],
     },
   ];
 

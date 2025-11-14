@@ -7,11 +7,12 @@ export default function Hero() {
         Daniel Hansson
       </h1>
       <p className="text-xl md:text-2xl mb-6" style={{ color: 'var(--primary)' }}>
-        Datacenter Manager med bakgrund som entreprenör och teknisk specialist
+        Datacenter Manager • Open Source-expert • Entreprenör • Systemadministratör
       </p>
       <p className="max-w-2xl mx-auto text-lg md:text-xl mb-8 px-4" style={{ color: 'var(--light)' }}>
-        Leder drift av datacenter i södra Sverige. Specialist på Linux, virtualisering och serverdrift med dokumenterad erfarenhet från både småföretag och enterprise-miljöer. 
-        Grundat och sålt tre företag. Kombinerar teknisk expertis med affärsförståelse och stark kommunikativ förmåga.
+        Med passion för automation, stabilitet och kontinuerlig förbättring. 
+        Kombinerar djup teknisk expertis inom Linux, virtualisering och infrastruktur med beprövad förmåga att leda team och driva moderniseringsprojekt. 
+        Entreprenöriell bakgrund med affärsförståelse och lösningsorienterat mindset.
       </p>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 max-w-4xl mx-auto px-4 mb-8">
@@ -43,15 +44,15 @@ export default function Hero() {
           rel="noopener noreferrer"
           className="contact-item"
         >
-          <span>CV & Personligt brev</span>
+          <span>CV</span>
         </a>
         <a 
-          href="https://www.openstreetmap.org/?#map=13/55.59949/13.37809" 
+          href="https://www.openstreetmap.org/?#map=11/55.5799/13.2632" 
           target="_blank"
           rel="noopener noreferrer"
           className="contact-item"
         >
-          <span>Genarp, Skåne</span>
+          <span>Var finns jag?</span>
         </a>
       </div>
     </header>

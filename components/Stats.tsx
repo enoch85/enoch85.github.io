@@ -2,10 +2,10 @@
 
 export default function Stats() {
   const stats = [
-    { number: '10+', label: 'år inom IT' },
-    { number: '3', label: 'företag grundade' },
-    { number: 'Linux', label: 'expert' },
-    { number: 'Open Source', label: 'maintainer' },
+    { number: '12+', label: 'års erfarenhet inom IT' },
+    { number: 'Linux', label: 'specialist' },
+    { number: '24/7', label: 'drift-ansvar' },
+    { number: '700+', label: 'servrar i drift' },
   ];
 
   return (
