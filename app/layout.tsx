@@ -2,19 +2,21 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Daniel Hansson - Tech Entrepreneur & Infrastructure Expert",
-  description: "En ovanlig mix av social och teknisk kompetens. Med erfarenhet från både försäljning, entreprenörskap och djup teknisk expertis inom Linux och datacenter-drift. Passionate open source-bidragare och skapare av innovativa infrastrukturlösningar.",
+  title: "Daniel Hansson - Datacenter Manager & Systemadministratör",
+  description: "Datacenter Manager med passion för automation, stabilitet och kontinuerlig förbättring. Kombinerar teknisk expertis inom Linux, virtualisering och infrastruktur med beprövad förmåga att leda team och driva moderniserings- och migreringsprojekt.",
   keywords: [
     "Daniel Hansson",
-    "Tech Entrepreneur",
-    "Infrastructure Expert",
     "Datacenter Manager",
-    "Linux Expert",
+    "Systemadministratör",
     "Open Source",
-    "DevOps",
-    "Nextcloud",
+    "Linux",
+    "Virtualisering",
     "VMware",
-    "Cloud Infrastructure",
+    "Nextcloud",
+    "DevOps",
+    "Automation",
+    "Infrastruktur",
+    "Drift",
   ],
   authors: [{ name: "Daniel Hansson" }],
   creator: "Daniel Hansson",
@@ -27,22 +29,22 @@ export const metadata: Metadata = {
     type: "profile",
     locale: "sv_SE",
     url: "https://rekrytera.danielhansson.nu",
-    title: "Daniel Hansson - Tech Entrepreneur & Infrastructure Expert",
-    description: "En ovanlig mix av social och teknisk kompetens. Med erfarenhet från både försäljning, entreprenörskap och djup teknisk expertis inom Linux och datacenter-drift.",
+    title: "Daniel Hansson - Datacenter Manager & Systemadministratör",
+    description: "Datacenter Manager med passion för automation, stabilitet och kontinuerlig förbättring. Kombinerar teknisk expertis inom Linux, virtualisering och infrastruktur med beprövad förmåga att leda team och driva moderniserings- och migreringsprojekt.",
     siteName: "Daniel Hansson CV",
     images: [
       {
-        url: "/og-image.png", // We'll create this later
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Daniel Hansson - Tech Entrepreneur & Infrastructure Expert",
+        alt: "Daniel Hansson - Datacenter Manager & Systemadministratör",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Daniel Hansson - Tech Entrepreneur & Infrastructure Expert",
-    description: "En ovanlig mix av social och teknisk kompetens inom Linux, datacenter-drift och open source.",
+    title: "Daniel Hansson - Datacenter Manager & Systemadministratör",
+    description: "Datacenter Manager med passion för automation, stabilitet och kontinuerlig förbättring. Kombinerar teknisk expertis inom Linux, virtualisering och infrastruktur.",
     images: ["/og-image.png"],
   },
   robots: {
