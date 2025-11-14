@@ -30,7 +30,7 @@ export default function Skills() {
     },
     {
       title: 'Operativsystem & Servrar',
-      skills: ['Linux-administration', 'Linux Server', 'Windows Server', 'Active Directory', 'Microsoft Exchange', 'Microsoft Azure', 'Docker'],
+      skills: ['Linux-administration', 'Linux Server', 'Windows Server', 'Active Directory', 'Microsoft Exchange', 'Microsoft Azure', 'Docker', 'PostgreSQL', 'MySQL'],
     },
     {
       title: 'Backup & Lagring',

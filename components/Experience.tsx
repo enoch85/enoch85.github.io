@@ -107,7 +107,7 @@ export default function Experience() {
       location: 'Malmö',
       highlight: 'Karriärutveckling',
       description: 'Vessinge IT är del av större koncern inom fastighet. Började som IT-tekniker och avancerade till systemadministratör med huvudansvar för alla servrar och mjukvaror. Blev senare ansvarig för Second-Line. Förvaltade Windows/Linux hybrid-miljö med VMware, Hyper-V, Windows Server 2008-2019, Ubuntu, Docker och Portainer. Daglig kontakt med leverantörer och åtgärdade problem på högre teknisk nivå.',
-      skills: ['System Administration', 'VMware/Hyper-V', 'Windows/Linux Hybrid', 'Second-Line Support', 'Vendor Management'],
+      skills: ['System Administration', 'VMware/Hyper-V', 'Windows/Linux Hybrid', 'Microsoft SQL Server', 'Second-Line Support', 'Vendor Management'],
       logo: '/vessinge-logo.png',
       logoAlt: 'Vessinge IT',
     },
