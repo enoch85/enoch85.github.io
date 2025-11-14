@@ -1,27 +1,47 @@
 "use client";
 
-import { useState } from "react";
+import { useSyncExternalStore } from "react";
+
+function getThemeSnapshot(): "light" | "dark" {
+  if (typeof window === "undefined") return "light";
+  
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "light" || savedTheme === "dark") {
+    return savedTheme;
+  }
+  
+  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    return "dark";
+  }
+  
+  return "light";
+}
+
+function getServerSnapshot(): "light" | "dark" {
+  return "light";
+}
+
+let listeners: Array<() => void> = [];
+
+function subscribe(listener: () => void): () => void {
+  listeners.push(listener);
+  return () => {
+    listeners = listeners.filter(l => l !== listener);
+  };
+}
+
+function emitChange(): void {
+  listeners.forEach(listener => listener());
+}
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<"light" | "dark">(() => {
-    if (typeof window === "undefined") return "light";
-    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
-    if (savedTheme) {
-      document.documentElement.setAttribute("data-theme", savedTheme);
-      return savedTheme;
-    }
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      document.documentElement.setAttribute("data-theme", "dark");
-      return "dark";
-    }
-    return "light";
-  });
+  const theme = useSyncExternalStore(subscribe, getThemeSnapshot, getServerSnapshot);
 
-  const toggleTheme = () => {
+  const toggleTheme = (): void => {
     const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
     document.documentElement.setAttribute("data-theme", newTheme);
+    emitChange();
   };
 
   return (
