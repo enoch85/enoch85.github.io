@@ -5,6 +5,7 @@ import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Additional from "@/components/Additional";
 import ThemeToggle from "@/components/ThemeToggle";
+import LastUpdated from "@/components/LastUpdated";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
           <p className="mt-4 text-sm">
             <a href="https://www.openstreetmap.org/?#map=13/55.59949/13.37809" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)' }}>📍 Genarp, Skåne</a>
           </p>
+          <LastUpdated />
         </footer>
       </main>
     </div>
