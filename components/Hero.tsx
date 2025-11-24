@@ -10,10 +10,10 @@ export default function Hero() {
         Datacenter Manager • Open Source-expert • Entreprenör • Systemadministratör
       </p>
       <p className="max-w-2xl mx-auto text-lg md:text-xl mb-8 px-4" style={{ color: 'var(--light)' }}>
-        Med passion för automation, stabilitet och kontinuerlig förbättring. 
-        Resultatorienterad och driven personlighet med 12+ års erfarenhet inom IT-infrastruktur, virtualisering och automation. 
-        Beprövad förmåga att leda team, driva moderniseringsprojekt och säkerställa 24/7 driftstabilitet för kritiska system (700+ servrar). 
-        Kombinerar teknisk expertis inom Linux och virtualisering med entreprenöriell bakgrund och lösningsorienterat mindset.
+        Resultatorienterad och driven personlighet med passion för automation, stabilitet och kontinuerlig förbättring. 
+        Älskar att bygga och driva IT-miljöer där saker bara funkar – från småbolag till enterprise (700+ servrar). Helst av allt ska det mesta ske automagiskt.
+        Kombinerar teknisk expertis inom Linux och virtualisering med förmåga att leda team och driva utvecklings- och moderniseringsprojekt.
+        Entreprenöriell bakgrund gör att jag förstår helheten: både teknik och affär.
       </p>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 max-w-4xl mx-auto px-4 mb-8">
