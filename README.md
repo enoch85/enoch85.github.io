@@ -26,6 +26,9 @@ respects required checks and reviews; additional required reviewers still need
 to approve. Require the `validate` check for dependency PRs if branch rules are
 configured.
 
+The Lint workflow runs `npm run lint` for every pull request and pushes to `main`.
+Its `ESLint` check is required for merging into `main`.
+
 After a Dependabot PR merges into `main`, the site rebuilds and deploys to GitHub
 Pages no sooner than 30 minutes after the merge. A completion trigger handles
 workflow-token merges, with a five-minute scheduled fallback for delayed merges
