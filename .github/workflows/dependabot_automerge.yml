@@ -6,21 +6,20 @@ permissions: {}
 
 jobs:
   validate:
-    if: github.event.pull_request.user.login == 'dependabot[bot]' && github.actor == 'dependabot[bot]'
     runs-on: ubuntu-latest
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v6
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
-          node-version: "20"
+          node-version-file: .node-version
           cache: npm
       - run: npm ci
       - run: npm run build
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
-          python-version: "3.12"
+          python-version: "3.14"
           cache: pip
           cache-dependency-path: cv-generator/requirements.txt
       - run: pip install -r cv-generator/requirements.txt
@@ -37,11 +36,12 @@ jobs:
       # Verify Dependabot's identity and signed commits. Never check out PR code here.
       - id: meta
         uses: dependabot/fetch-metadata@25dd0e34f4fe68f24cc83900b1fe3fe149efef98 # v3.1.0
-      - name: Enable auto-merge for minor and patch updates
+      - name: Approve and enable auto-merge for minor and patch updates
         if: contains(fromJSON('["version-update:semver-minor", "version-update:semver-patch"]'), steps.meta.outputs.update-type)
         env:
           GH_TOKEN: ${{ github.token }}
           PR_URL: ${{ github.event.pull_request.html_url }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
+          gh pr review --approve "$PR_URL"
           gh pr merge --auto --squash --match-head-commit "$HEAD_SHA" "$PR_URL"
