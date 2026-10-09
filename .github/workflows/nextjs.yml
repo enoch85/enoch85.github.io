@@ -4,9 +4,18 @@ on:
   push:
     branches: ["main"]
   workflow_dispatch:
+  # GITHUB_TOKEN auto-merges do not emit another push workflow run.
+  workflow_run:
+    workflows: ["Dependabot auto-merge"]
+    types: [completed]
+  # Recover merges that finish after the auto-merge workflow (required checks,
+  # reviews, or merge queues). GitHub may start scheduled runs late.
+  schedule:
+    - cron: "*/5 * * * *"
 
 permissions:
   contents: read
+  deployments: read
   pages: write
   id-token: write
 
@@ -15,31 +24,102 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  prepare:
+    if: github.event_name != 'workflow_run' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.actor.login == 'dependabot[bot]')
     runs-on: ubuntu-latest
+    outputs:
+      sha: ${{ steps.plan.outputs.sha }}
+      deploy: ${{ steps.plan.outputs.deploy }}
+      delay: ${{ steps.plan.outputs.delay }}
     steps:
+      - name: Select merged main commit and calculate deployment delay
+        id: plan
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const repo = context.repo;
+            const { data: branch } = await github.rest.repos.getBranch({ ...repo, branch: 'main' });
+            const sha = branch.commit.sha;
+            // Discard superseded push events instead of deploying stale code.
+            if (context.eventName === 'push' && context.sha !== sha) return;
+            const { data: prs } = await github.rest.repos.listPullRequestsAssociatedWithCommit({ ...repo, commit_sha: sha });
+            const dependencyPR = prs.find(pr =>
+              pr.user.login === 'dependabot[bot]' && pr.merged_at &&
+              pr.base.ref === 'main' && pr.merge_commit_sha === sha);
+            if (context.eventName === 'workflow_run' && !dependencyPR) return;
+            const delay = dependencyPR
+              ? Math.max(0, Math.ceil((Date.parse(dependencyPR.merged_at) + 30 * 60 * 1000 - Date.now()) / 1000))
+              : 0;
+            // Scheduled runs retry later without occupying a runner for the delay.
+            if (context.eventName === 'schedule' && delay > 0) return;
+            if (['schedule', 'workflow_run'].includes(context.eventName)) {
+              const { data: deployments } = await github.rest.repos.listDeployments({
+                ...repo, sha, environment: 'github-pages', per_page: 100
+              });
+              for (const deployment of deployments) {
+                const { data: statuses } = await github.rest.repos.listDeploymentStatuses({
+                  ...repo, deployment_id: deployment.id, per_page: 1
+                });
+                if (statuses[0]?.state === 'success') return;
+              }
+            }
+            core.setOutput('sha', sha);
+            core.setOutput('delay', delay);
+            core.setOutput('deploy', 'true');
+
+  build:
+    needs: prepare
+    if: needs.prepare.outputs.deploy == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Wait until 30 minutes after the dependency merge
+        env:
+          DELAY_SECONDS: ${{ needs.prepare.outputs.delay }}
+        run: sleep "$DELAY_SECONDS"
+
+      - name: Check that this commit is still current
+        id: current
+        uses: actions/github-script@v7
+        env:
+          DEPLOY_SHA: ${{ needs.prepare.outputs.sha }}
+        with:
+          script: |
+            const { data } = await github.rest.repos.getBranch({ ...context.repo, branch: 'main' });
+            core.setOutput('deploy', data.commit.sha === process.env.DEPLOY_SHA ? 'true' : 'false');
+
       - name: Checkout
+        if: steps.current.outputs.deploy == 'true'
         uses: actions/checkout@v4
-        
+        with:
+          ref: ${{ needs.prepare.outputs.sha }}
+
       - name: Setup Node
+        if: steps.current.outputs.deploy == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: 'npm'
-          
+          cache: npm
+
       - name: Setup Pages
+        if: steps.current.outputs.deploy == 'true'
         uses: actions/configure-pages@v5
-        
+
       - name: Install dependencies
+        if: steps.current.outputs.deploy == 'true'
         run: npm ci
-        
+
       - name: Build with Next.js
+        if: steps.current.outputs.deploy == 'true'
         run: npm run build
-        
+
       - name: Upload artifact
+        if: steps.current.outputs.deploy == 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
+    outputs:
+      deploy: ${{ steps.current.outputs.deploy }}
 
   deploy:
     environment:
@@ -47,6 +127,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
+    if: needs.build.outputs.deploy == 'true'
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
