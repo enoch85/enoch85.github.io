@@ -2,12 +2,17 @@
 
 ## Tech Stack
 
-- Next.js 16.0.3
-- React 19.2.0
-- TypeScript 5.x
-- Tailwind CSS 4.x
-- Node.js 20.x
+- Next.js 16.4.0
+- React 19.3.0
+- TypeScript 6.0.3
+- Tailwind CSS 4.3.3
+- ESLint 9.39.5
+- Node.js 26.x (shared by local development and CI through `.node-version`)
 - GitHub Pages
+- CV generator: Python 3.14.8, python-docx 1.2.0, deep-translator 1.11.4
+
+TypeScript and ESLint use the newest releases supported by Next.js's lint
+plugins. Python uses the latest stable version available to GitHub Actions.
 
 ## Dependency updates and deployment
 
@@ -27,7 +32,8 @@ to approve. Require the `validate` check for dependency PRs if branch rules are
 configured.
 
 The Lint workflow runs `npm run lint` for every pull request and pushes to `main`.
-Its `ESLint` check is required for merging into `main`.
+Its `ESLint` check is required for merging into `main`. Every PR also runs the
+site build and Python dependency validation before Dependabot approval can run.
 
 After a Dependabot PR merges into `main`, the site rebuilds and deploys to GitHub
 Pages no sooner than 30 minutes after the merge. A completion trigger handles
