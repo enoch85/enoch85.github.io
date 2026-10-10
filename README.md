@@ -15,5 +15,5 @@
 ## Automatic updates
 
 Dependabot keeps dependencies updated. Minor and patch updates merge after checks
-pass, and the site redeploys automatically after 30 minutes. Major updates require
+pass, and the site redeploys with the next daily build. Major updates require
 manual review.
